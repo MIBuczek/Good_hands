@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HomeHeader from './HomeElements/HomeHeader';
 import HomeThreeColumns from './HomeElements/HomeThreeColumns';
+import HomeSteps from './HomeElements/HomeSteps';
 
 const HomeWrapper = styled.div`
 width:100%;
@@ -14,6 +15,7 @@ const Home = () => {
     <HomeWrapper>
       <HomeHeader />
       <HomeThreeColumns />
+      <HomeSteps />
     </HomeWrapper >);
 }
 
