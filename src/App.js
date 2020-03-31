@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Home from './views/Home';
-import FormStep1 from './views/FormStep1';
+import FormStep1 from './views/FormElemnts/FormStep1';
 import Login from './views/Login';
 import Logout from './views/Logout';
 import Register from './views/Reqister';
