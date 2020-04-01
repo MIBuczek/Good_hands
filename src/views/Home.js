@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HomeHeader from './HomeElements/HomeHeader';
 import HomeThreeColumns from './HomeElements/HomeThreeColumns';
 import HomeSteps from './HomeElements/HomeSteps';
+import HomeAbout from './HomeElements/HomeAbout';
 
 const HomeWrapper = styled.div`
 width:100%;
@@ -16,6 +17,7 @@ const Home = () => {
       <HomeHeader />
       <HomeThreeColumns />
       <HomeSteps />
+      <HomeAbout />
     </HomeWrapper >);
 }
 
