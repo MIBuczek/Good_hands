@@ -25,7 +25,7 @@ const NavElement = styled.li`
 padding:9px 20px;
 display:inline-block;
 font-family: 'Open Sans';
-font-size:1.1rem;
+font-size:1rem;
 font-weight:400;
 letter-spacing: 0;
 color: #3C3C3C;

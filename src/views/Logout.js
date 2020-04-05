@@ -1,8 +1,31 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { ButtonLog } from '../componets/Buttons';
+import NavRuter from '../componets/NavRuter';
+import imgMotto from '../assets/Decoration.svg';
+import {LogConsole, LogWrapper , LogNav, LogPannel, LogHero, LogMain } from './LogElements/LogElements';
+
 
 const Logout = () => {
   return (
-    <h1>Hello from log out.</h1>
+    (<LogWrapper>
+      <LogNav>
+          <LogPannel>
+            <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
+            <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+          </LogPannel>
+          <NavRuter />
+      </LogNav>
+      <LogConsole>
+        <LogHero>
+          <h1>Wylogowanie nastąpiło pomyślnie!</h1>
+          <img src={imgMotto} alt='decoration img'></img>
+        </LogHero>
+        <LogMain>
+          <ButtonLog>Strona główna</ButtonLog>
+        </LogMain>
+      </LogConsole>
+    </LogWrapper >)
   );
 }
 
