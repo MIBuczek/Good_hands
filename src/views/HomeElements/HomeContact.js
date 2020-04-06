@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import bgContact from '../../assets/Background-Contact-Form.jpg';
 import imgMotto from '../../assets/Decoration.svg';
 import {ButtonAction} from '../../componets/Buttons'
 import FooterHome from '../../componets/Footer';
+import {DataContext} from '../../context/DataContext';
 
 const ContactWrapper = styled.section`
 width:100%;
@@ -107,27 +109,49 @@ textarea{
 }
 `;
 
+const Error = styled.span`
+display:block;
+font-size:12px;
+font-family: 'Open Sans';
+color:tomato;
+`;
+
 const HomeContact = () => {
+    const {sendMessage} = useContext(DataContext);
+    const [ nameMess , setNameMess ] = useState();
+    const [ emailMess, setEmailMess ] = useState();
+    const [ message , setMessage] = useState();
+    const { register, handleSubmit, errors } = useForm()
+
+    const checkMessage = () =>{
+        sendMessage(nameMess , emailMess , message);
+        setNameMess('');
+        setNameMess('');
+        setMessage('');
+    }
     return ( 
         <ContactWrapper>
-            <ContactForm>
+            <ContactForm id='contact'>
                 <h2>Skontaktuj się z nami</h2>
                 <img src={imgMotto} alt="decoration element"/>
                 <Form>
                     <FormElement>
-                    <label>Wpisz swoje imie</label>
-                    <input type="text" placeholder="Krzysztof"/>
+                    <label htmlFor={nameMess}>Wpisz swoje imie</label>
+                    <input type="text" name='nameMess' onChange={e=>setNameMess(e.target.value)}  placeholder="imie" ref={register({ required: true, minLength:4 ,maxLength: 20 })}/>
+                    {errors.nameMess && <Error>Pole wymagane</Error>}
                     </FormElement>
                     <FormElement>
-                    <label>Wpisz swoj email</label>
-                    <input type="text" placeholder="abc@xyz.pl"/>
+                    <label htmlFor={emailMess}>Wpisz swoj email</label>
+                    <input type="text" name='emailMess' onChange={e=>setEmailMess(e.target.value)} placeholder="e-mail" ref={register({ required: true, minLength:4 , maxLength: 20,  pattern: /^\S+@\S+$/i})}/>
+                    {errors.emailMess && <Error>Pole wymagane</Error>}
                     </FormElement>
                     <FormElement full>
-                    <label>Wpisz swoja wiadomość</label>
-                    <textarea type="text" placeholder="treść wiadomości..."/>
+                    <label htmlFor={message}>Wpisz swoja wiadomość</label>
+                    <textarea type="text" name='message' onChange={e=>setMessage(e.target.value)} placeholder="treść wiadomości..." ref={register({ required: true, minLength:4 , maxLength: 150  })}/>
+                    {errors.message && <Error>Pole wymagane</Error>}
                     </FormElement>
                 </Form>
-                <ButtonAction>Wyślij</ButtonAction>           
+                <ButtonAction type='button' onClick={handleSubmit(checkMessage)}>Wyślij</ButtonAction>           
         </ContactForm>
         <FooterHome/>
         </ContactWrapper>

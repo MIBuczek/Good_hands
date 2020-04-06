@@ -5,7 +5,9 @@ export const DataContext = createContext();
 
 const DataContextProvide = (props) => {
     const [ users , setUsers] = useState([]);
-    const [ organizations, setOrganization ] = useState()
+    const [ userLoged , setUserLoged] = useState({ email : '' , password: ''});
+    const [ isLoged, setIsLoged] = useState(false);
+    const [ organizations, setOrganization ] = useState();
 
     const loadData = ()=>{
         db.collection('users').get().then(snapshot => {
@@ -16,6 +18,7 @@ const DataContextProvide = (props) => {
           return usersArr.push(user);
          });
          setUsers(usersArr);
+         console.log('test');
         });
         db
         .collection('organizacje')
@@ -31,22 +34,36 @@ const DataContextProvide = (props) => {
         });
     }
    
-    useEffect(()=>{
-        if(users.length === 0){
-            loadData();
-        } ;
-    });
+    useEffect(()=>{ loadData()},[]);
 
     const getUser = (userEmail , userPassword) =>{
-        setUsers({ userEmail, userPassword});
+        const matchingUser = users.find(user => {
+         return (user.email === userEmail && user.password === userPassword);
+        });
+        if (matchingUser) {
+            setUserLoged(matchingUser);
+            setIsLoged(true);
+        } else {
+            setIsLoged(false);
+        }
     }
 
     const singNewUser=(newUserEmail,newUserPassword ) =>{
-        const newUser = {newUserEmail,newUserPassword}
+        const newUser = { name : newUserEmail, password : newUserPassword};
         db.collection('users').add(newUser).then(() =>loadData());
     }
+
+    const sendMessage = ( name , email , message )=>{
+        const newMess = { name , email , message};
+        db.collection('wiadomosci').add(newMess).then(() =>loadData());
+    }
+
+    const logOut = () =>{
+        setUserLoged({ email : '' , password: ''});
+        setIsLoged(false);
+    }
     return ( 
-    <DataContext.Provider value={{users, organizations , getUser, singNewUser}} >
+    <DataContext.Provider value={{users, organizations , getUser, singNewUser, sendMessage , isLoged , userLoged , logOut}} >
         {props.children}
     </DataContext.Provider> )
 }

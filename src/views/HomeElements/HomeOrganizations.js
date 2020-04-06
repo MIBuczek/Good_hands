@@ -1,8 +1,9 @@
 import React, {useContext , useState} from 'react';
 import styled from 'styled-components';
 import imgMotto from '../../assets/Decoration.svg';
-import {ButtonAction} from '../../componets/Buttons'
+import { ButtonAction } from '../../componets/Buttons'
 import { DataContext } from '../../context/DataContext';
+import Pagination from '../../componets/Pagination';
 
 const OrgWrapper = styled.section`
 margin-top:2rem;
@@ -87,35 +88,11 @@ span{
 
 `;
 
-const OrgaPages= styled.div`
-width:50%;
-height:70px;
-display:flex;
-flex-direction:row;
-margin:0.5rem auto;
-text-align:center;
-justify-content:center;
-`;
-
-const ButtonPage = styled.button`
-width:40px;
-height:50px;
-font-size:.8rem;
-font-weight:300;
-color: #3C3C3C;
-background:none;
-border:none;
-margin:0 0.7rem;
-&:focus{
-    border: 1px solid #707070;
-    outline:none;
-}
-
-`;
-
 const HomeOrganizations = () => {
     const { organizations } = useContext(DataContext);
     const [ orgToShow , setOrgToShow] = useState([]);
+    const [ currentPage, setCurrentPage] = useState(1);
+    const [ postPerPage ] = useState(3);
 
     const filterOrg = (type)=>{
         let currentOrg = organizations.filter(org=>{
@@ -124,8 +101,16 @@ const HomeOrganizations = () => {
         setOrgToShow(currentOrg);
     }
 
+    //Pagination 
+    const indexOfLastPost = currentPage * postPerPage;
+    const indexOfFirstPost = indexOfLastPost - postPerPage;
+    const curentOrg = orgToShow.slice(indexOfFirstPost , indexOfLastPost);
+
+    //switch page
+    const nextPage = (number) => setCurrentPage(number);
+
     return (  
-    <OrgWrapper>
+    <OrgWrapper id='organization'>
         <OrgHeader>
             <h1>Komu pomagamy?</h1>
             <img src={imgMotto} alt="decoration element"/>
@@ -141,7 +126,7 @@ const HomeOrganizations = () => {
             </span>
         </OrgMotto>
         <OrgGrupe>
-            { orgToShow.length !== 0 && orgToShow.map((org, index)=>{
+            { orgToShow.length !== 0 && curentOrg.map((org, index)=>{
               return( <OrgElement key={index}>
                   <h3>{org.nazwa}</h3>
                   <span>Cel i misja: {org.cel}</span>
@@ -149,11 +134,7 @@ const HomeOrganizations = () => {
                 </OrgElement>
             )}) }
         </OrgGrupe>
-        <OrgaPages>
-            <ButtonPage>1</ButtonPage>
-            <ButtonPage>2</ButtonPage>
-            <ButtonPage>3</ButtonPage>
-        </OrgaPages>
+        <Pagination postPerPage={postPerPage} totalPost={orgToShow.length} nextPage={nextPage}/>
     </OrgWrapper>
     );
 }

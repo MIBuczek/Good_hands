@@ -38,7 +38,7 @@ justify-content:center;
 
 export const LogHero = styled.div`
 width:380px;
-height:100px;
+height:  ${props => props.short ? '50px' : '100px'} 
 margin-bottom:1rem;
 h1{
 text-align: center;
@@ -49,15 +49,15 @@ color: #3C3C3C;
 margin:0;
 }
 img{
-    margin-top:1rem;
+    margin:1rem 0;
 }
 button{
-  margin:0.5rem 3rem;
+  margin:1rem 3rem;
 }
 `;
 export const LogForm = styled.div`
-width:380px;
-min-height:235px;
+width:30%;
+min-height:47%;
 background: #F0F1F1;
 `;
 
@@ -76,6 +76,7 @@ export const Label = styled.form`
     font-size:0.8rem;
     width:100%;
     height:32px;
+    margin-top:1.5rem;
   }
   input{
     width:100%;
@@ -83,11 +84,10 @@ export const Label = styled.form`
     background:none;
     border:none;
     border-bottom:0.8px solid #3C3C3C;
-    margin-bottom: 1.5rem;
     &:focus{
       outline:none;
       border:none;
-      box-shadow: 0 0 0 0.8px  #3C3C3C;
+      border-bottom:1.5px solid #3C3C3C;
       font-family:'Open Sans';
       padding: 2px 5px;
     }
@@ -105,4 +105,10 @@ button{
  font-size:1.1rem;
 }
 
+`;
+
+export const Error = styled.span`
+font-size:10px;
+font-family: 'Open Sans';
+color:tomato;
 `;

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import heroImg from '../../assets/Home-Hero-Image.jpg';
 import { ButtonLog, ButtonAction } from '../../componets/Buttons';
 import imgMotto from '../../assets/Decoration.svg';
 import NavRuter from '../../componets/NavRuter';
+import {DataContext} from '../../context/DataContext';
 
 const HomeWrapper = styled.div`
 width:100%;
@@ -45,24 +46,42 @@ img{
 `;
 
 const LogInPannel = styled.div`
-width:40%;
+width:75%;
 height:50%;
 margin-left:auto;
 display:flex;
 flex-direction:row;
 justify-content:flex-end;
 align-items:center;
+span{
+  font-size:0.8rem;
+  font-weight:300;
+  margin-top:2.5rem;
+  margin-bottom:1.5rem;
+  padding-right:1rem;
+}
 `;
 
 
 const HomeHeader = () => {
-  return (<HomeWrapper>
+  const { isLoged, userLoged, logOut } = useContext(DataContext);
+
+  const logNot = <>
+  <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
+  <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+  </>;
+  const logIn = <>
+  <span>Część {userLoged.email}</span>
+  <Link to="/logowanie" label="logowaniee"><ButtonLog>Oddaj rzeczy</ButtonLog></Link>
+  <Link to="/wylogowane" label="rejestracj"><ButtonLog typ='button' onClick={()=>logOut()}>Wyloguj</ButtonLog></Link>
+  </>
+
+  return (<HomeWrapper id='start'>
     <HomeImg></HomeImg>
     <HomeNav>
       <HomePannel>
         <LogInPannel>
-          <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
-          <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+          { isLoged ? logIn : logNot }
         </LogInPannel>
         <NavRuter />
       </HomePannel>

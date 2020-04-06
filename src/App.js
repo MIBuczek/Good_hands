@@ -39,3 +39,8 @@ function App() {
 }
 
 export default App;
+
+
+//Linki nawigacja
+//podlinkowanie buttonów do sekcji dadawania organizacji
+//paginacja 

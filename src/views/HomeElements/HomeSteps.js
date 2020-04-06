@@ -69,7 +69,7 @@ p{
 
 const HomeSteps = () => {
   return (
-    <HomeStepsWrapper>
+    <HomeStepsWrapper id='steps'>
       <StepsMotto>
         <h1>Wystarczą 4 proste kroki</h1>
         <img src={imgMotto} alt='steps motto img' />

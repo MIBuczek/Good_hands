@@ -6,13 +6,14 @@ import imgMotto from '../assets/Decoration.svg';
 import {LogConsole, LogWrapper , LogNav, LogPannel, LogHero, LogMain } from './LogElements/LogElements';
 
 
+
 const Logout = () => {
   return (
     (<LogWrapper>
       <LogNav>
           <LogPannel>
             <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
-            <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+            <Link to="/wylo" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
           </LogPannel>
           <NavRuter />
       </LogNav>
@@ -22,7 +23,9 @@ const Logout = () => {
           <img src={imgMotto} alt='decoration img'></img>
         </LogHero>
         <LogMain>
-          <ButtonLog>Strona główna</ButtonLog>
+         <Link to="/">
+            <ButtonLog>Strona główna</ButtonLog>
+         </Link>
         </LogMain>
       </LogConsole>
     </LogWrapper >)

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 export const ButtonLog = styled.button`
 margin-top:2.5rem;
-margin-bottom:3rem;
+margin-bottom:1.5rem;
 padding:9px 10px;
 justify-self:flex-end;
 font-family: 'Open Sans';
 font-weight:300;
 background:none;
 border:none;
-width:90px;
+width:100px;
 height:36px;
 font-size:13px;
 border: 0.75px solid #fff;

@@ -47,7 +47,7 @@ background-position:right;
 
 const HomeAbout = () => {
   return (<AboutWrapper>
-    <AboutText>
+    <AboutText id='about'>
       <h2>O nas</h2>
       <img src={imgMotto} alt="img decoration" />
       <span>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
