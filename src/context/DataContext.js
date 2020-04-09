@@ -18,7 +18,6 @@ const DataContextProvide = (props) => {
           return usersArr.push(user);
          });
          setUsers(usersArr);
-         console.log('test');
         });
         db
         .collection('organizacje')

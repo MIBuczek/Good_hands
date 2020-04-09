@@ -3,11 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import DataContextProvider from './context/DataContext';
 import Home from './views/Home';
-import FormStep1 from './views/FormElemnts/FormStep1';
+import Form from './views/FormElemnts/Form';
 import Login from './views/Login';
 import Logout from './views/Logout';
 import Register from './views/Reqister';
-
 import './App.css';
 
 const Wrapper = styled.div`
@@ -27,7 +26,7 @@ function App() {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={() => <Home />} />
-              <Route path="/oddaj-rzeczy" component={() => <FormStep1 />} />
+              <Route path="/oddaj-rzeczy" component={() => <Form />} />
               <Route path="/logowanie" component={() => <Login />} />
               <Route path="/wylogowane" component={() => <Logout />} />
               <Route path="/rejestracj" component={() => <Register />} />
