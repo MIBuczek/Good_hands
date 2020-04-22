@@ -43,7 +43,7 @@ export const Form = styled.div`
   width:100%;
   font-size:1.5rem;
   color: #3C3C3C;
-  margin-bottom:70px;
+  margin-bottom:40px;
   font-family: 'Open Sans';
   }
   button{
@@ -62,53 +62,41 @@ height:65%;
 font-family: 'Open Sans';
 h2{
   font-size:1.8rem;
+  margin: 0.6rem 0;
 }
 `;
-
 export const Step = styled.div`
  width:100%;
- height:50px;
+ min-height:50px;
  margin:1.2rem 0 ;
  display:flex;
  flex-direction:row;
  align-items:center;
- input{
-   position: relative;
-   width:30px;
-   height:30px;
-   visibility: hidden;
-   &:checked::before{
-    position:absolute;
-     bottom:0;
-     left:0;
-     content:'';
-     width:30px;
-     height:30px;
-     border: 0.75px solid #3C3C3C;
-     z-index:2;
-     background:#FAD648;
-   }
-    &::before{
-     position:absolute;
-     bottom:0;
-     left:0;
-     content:'';
-     width:30px;
-     height:30px;
-     border: 0.75px solid #3C3C3C;
-     z-index:2;
-     visibility:visible;
-   }
- }
- label{
-   min-width:30%;
+ flex-wrap:wrap;
+  h4{
+   margin:.6rem 0 ;
+  }  
+  label{
    height:100%;
-   margin-left:1rem;
    font-size:22px;
-   margin-top:1.2rem;
- }
- select{
-  width: 300px;
+  }
+`;
+
+export const InputExtra = styled.input`
+    width:80%;
+    height:36px;
+    border: 0.75px solid #3C3C3C;
+    background:none;
+    font-weight:300;
+    font-size:1.1rem;
+    font-family: 'Open Sans';
+    padding: 0 10px;
+    margin-bottom:50px;
+    outline:none;
+`;
+
+export const Slected = styled.select`
+  width: 260px;
   height: 39px;
   border: 0.75px solid #3C3C3C;
   background:none;
@@ -118,13 +106,53 @@ export const Step = styled.div`
   font-family: 'Open Sans';
   font-weight:300;
   color:  #3C3C3C;
-  &:active{
-    background:none;
-  }
+  text-align-last: center; 
   option{
-    background:none;
-    text-align:center;
-  }
-  
- }
+    background: #3C3C3C26;
+    outline:none;
+    border:black;
+    }
+`;
+
+export const BookCurier = styled.div`
+width:45%;
+height: 280px;
+display:inline-block;
+margin-right:2rem;
+h4{
+  font-size:1.4rem;
+  margin: 1rem 0;
+}
+`;
+
+export const CourierData = styled.div`
+width:100%;
+min-height:50px;
+display:flex;
+flex-direction:row;
+align-items:center;
+label{
+  width: 25%;
+  font-size: 1rem;
+  margin-right:1rem;
+  color:black;
+}
+input{
+  width:60%;
+  height:60%;
+  border: 0.75px solid #3C3C3C;
+  background:none;
+  font-weight:300;
+  font-size:1.1rem;
+  font-family: 'Open Sans';
+  padding: 0 10px;
+  outline:none;
+}
+textarea{
+  background-color: transparent;
+  border: 0.75px solid #3C3C3C;
+  width:60%;
+  height:80px;
+  outline:none;
+}
 `;

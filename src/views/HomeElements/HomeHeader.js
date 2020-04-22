@@ -34,7 +34,7 @@ const HomeHeader = () => {
         <img src={imgMotto} alt='decoration img' />
       </HomePannel>
       <HomePannel>
-        <ButtonAction>ODDAJ RZECZY</ButtonAction>
+      <Link to='/oddaj-rzeczy'><ButtonAction>ODDAJ RZECZY</ButtonAction></Link>
         <ButtonAction>ZORGANIZUJ ZBIÓRKĘ</ButtonAction>
       </HomePannel>
     </HomeNav>
