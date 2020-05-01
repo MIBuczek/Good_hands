@@ -32,7 +32,7 @@ const Checkbox = styled.input`
   }
 `;
 
-export const CheckboxTyp = ({ type = 'checkbox', name, checked = false, onChange }) => (
+export const CheckboxTyp = ({ type='checkbox' , name, checked = false, onChange }) => (
   <Checkbox type={type} name={name} checked={checked} onChange={onChange} id={name}/>
 );
 

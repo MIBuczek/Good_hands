@@ -1,17 +1,26 @@
-import React , { useContext } from 'react';
+import React , {useState, useContext } from 'react';
 import { CheckboxTyp , checkboxesStepThree } from '../../componets/CheckboxStepThree';
-import { FormStep, Form, Step ,Slected , InputExtra} from './FormElements';
+import { FormStep, Form, Step ,Slected , InputExtra, Error} from './FormElements';
 import {ButtonAction} from '../../componets/Buttons';
 import { UploadContext } from '../../context/UploadContext';
 
 
 const FormStep2 = () => {
   const { city, setCity, checkedItemsThree, setCheckedItemsThree, setStep, setStepBack, extraOption, setExtraOption } = useContext(UploadContext);
+  const [ empty , setEmpty] = useState(false);
 
   const checkInputsThree = ( e ) =>{
     setCheckedItemsThree({...checkedItemsThree, [e.target.name ] : e.target.checked });
-}
+  }
 
+  const checkStepTree = () => {
+    const value = Object.values(checkedItemsThree);
+    if(value.length !== 0 && value.some( i => i === true ) && city.length !== 0){
+      setStep(4)
+      setEmpty(false)
+    }
+    setEmpty(true)
+  }
     return ( 
         <Form>
       <h4>Krok 3/4</h4>
@@ -37,13 +46,14 @@ const FormStep2 = () => {
         </Step>
         <Step>
             <h4>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h4>
-            <InputExtra type='text' name='extraOption' value={extraOption} placeholde='duzo tekstu' onChange={e=>setExtraOption(e.target.value)}/>
+            <InputExtra type='text' name='extraOption' value={extraOption} placeholder='Fundacja pomocy dla powodzian' onChange={e=>setExtraOption(e.target.value)}/>
+            { empty === true && <Error>Prosze zaznaczyć miasto i wybrać dla kogo ma być datek.</Error>}
         </Step>
       </FormStep>
         <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
-        <ButtonAction type='button' onClick={()=>setStep(4)}>Dalej</ButtonAction>
+        <ButtonAction type='button' onClick={()=>checkStepTree()}>Dalej</ButtonAction>
     </Form>
-     );
+  );
 }
  
 export default FormStep2;

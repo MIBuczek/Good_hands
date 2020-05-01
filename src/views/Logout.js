@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ButtonLog } from '../componets/Buttons';
-import NavRuter from '../componets/NavRuter';
 import imgMotto from '../assets/Decoration.svg';
 import {LogConsole, LogWrapper , LogNav, LogPannel, LogHero, LogMain } from './LogElements/LogElements';
 
@@ -12,10 +11,10 @@ const Logout = () => {
     (<LogWrapper>
       <LogNav>
           <LogPannel>
-            <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
-            <Link to="/wylo" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+            <Link to="/" label="strona główna"><ButtonLog>Strona główna</ButtonLog></Link>
+            <Link to="/logowanie" label="logowanie"><ButtonLog>Zaloguj</ButtonLog></Link>
+            <Link to="/rejestracja" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
           </LogPannel>
-          <NavRuter />
       </LogNav>
       <LogConsole>
         <LogHero>

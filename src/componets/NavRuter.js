@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
+
 const NavBar = styled.nav`
 width:100%;
 height:5%;
@@ -36,20 +37,15 @@ border: 0.75px solid #fff;
 }
 `
 const NavRuter = () => {
+  
   return (
     <NavBar>
-      <NavList>
+       <NavList>
         <Link to='start' smooth={true} duration={1000}>
           <NavElement>Start</NavElement>
         </Link>
         <Link to='steps' smooth={true} duration={1000}>
-        <NavElement>O co chodzi?</NavElement>
-      </Link>
-      <Link to='about' smooth={true} duration={1000}>
-        <NavElement>O nas</NavElement>
-        </Link>
-        <Link to='organization' smooth={true} duration={1000}>
-        <NavElement>Fundacja i organizacje</NavElement>
+          <NavElement>Formularz</NavElement>
         </Link>
         <Link to='contact' smooth={true} duration={1000}>
           <NavElement>Kontakt</NavElement>

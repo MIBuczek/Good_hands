@@ -2,7 +2,6 @@ import React, {useContext , useState} from 'react';
 import { useForm } from 'react-hook-form'
 import { Link } from "react-router-dom";
 import { ButtonLog } from '../componets/Buttons';
-import NavRuter from '../componets/NavRuter';
 import imgMotto from '../assets/Decoration.svg';
 import {LogConsole, LogForm, LogWrapper , LogNav, LogPannel, LogHero, Label, Error} from './LogElements/LogElements';
 import { DataContext } from '../context/DataContext';
@@ -24,10 +23,10 @@ const Login = () => {
     (<LogWrapper>
       <LogNav>
           <LogPannel>
+            <Link to="/" label="strona główna"><ButtonLog>Strona główna</ButtonLog></Link>
             <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
             <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
           </LogPannel>
-          <NavRuter />
       </LogNav>
       <LogConsole>
         <LogHero>

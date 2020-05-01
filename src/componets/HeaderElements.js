@@ -57,12 +57,16 @@ span{
   margin-bottom:1.5rem;
   padding-right:1rem;
 }
+button{
+  width:auto;
+  padding: 0 15px;
+}
 `;
 
 export const Romb1 = styled.div`
   position:absolute;
   top:0;
-  left:50px;
+  left:130px;
   width:130px;
   height:130px;
   border: 0.75px solid #3C3C3C;
@@ -91,7 +95,7 @@ export const Romb1 = styled.div`
 export const Romb2 = styled.div`
   position:absolute;
   top:0;
-  left:200px;
+  left:280px;
   width:130px;
   height:130px;
   border: 0.75px solid #3C3C3C;
@@ -120,7 +124,7 @@ export const Romb2 = styled.div`
 export const Romb3 = styled.div`
   position:absolute;
   top:0;
-  left:350px;
+  left:430px;
   width:130px;
   height:130px;
   border: 0.75px solid #3C3C3C;
@@ -149,7 +153,7 @@ export const Romb3 = styled.div`
 export const Romb4 = styled.div`
   position:absolute;
   top:0;
-  left:500px;
+  left:580px;
   width:130px;
   height:130px;
   border: 0.75px solid #3C3C3C;

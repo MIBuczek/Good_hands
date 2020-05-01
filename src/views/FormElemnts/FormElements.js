@@ -47,7 +47,7 @@ export const Form = styled.div`
   font-family: 'Open Sans';
   }
   button{
-    width:150px;
+    width:200px;
     height:50px;
     margin:0;
     padding: 0 1rem;
@@ -65,6 +65,7 @@ h2{
   margin: 0.6rem 0;
 }
 `;
+
 export const Step = styled.div`
  width:100%;
  min-height:50px;
@@ -91,8 +92,12 @@ export const InputExtra = styled.input`
     font-size:1.1rem;
     font-family: 'Open Sans';
     padding: 0 10px;
-    margin-bottom:50px;
+    margin-bottom:10px;
     outline:none;
+    &::placeholder{
+    opacity:0.5;
+    text-align:center;
+  }
 `;
 
 export const Slected = styled.select`
@@ -116,7 +121,7 @@ export const Slected = styled.select`
 
 export const BookCurier = styled.div`
 width:45%;
-height: 280px;
+height: auto;
 display:inline-block;
 margin-right:2rem;
 h4{
@@ -125,34 +130,83 @@ h4{
 }
 `;
 
-export const CourierData = styled.div`
-width:100%;
-min-height:50px;
-display:flex;
-flex-direction:row;
-align-items:center;
-label{
-  width: 25%;
-  font-size: 1rem;
+export const SummaryElements = styled.div`
+ width:80%;
+ min-height:25%;
+ margin:1.3rem 0;
+ display:flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+ align-items: flex-start;
+ font-family: 'Open Sans';
+ font-size:1.4rem;
+ div{
+  display:flex;
+  width:100%;
+  height:100%;
+ }
+ img{
+  width:40px;
+  height:40px;
   margin-right:1rem;
-  color:black;
-}
-input{
-  width:60%;
-  height:60%;
-  border: 0.75px solid #3C3C3C;
-  background:none;
+ }
+ strong{
+   font-weight:600;
+ }
+ span{
   font-weight:300;
-  font-size:1.1rem;
+  width:100%;
+  height:30px;
+  display:flex;
+  align-items: center;
+  p{
+    margin: 0 0 0 2.5rem;
+  }
+ }
+`;
+export const SummaryAddress = styled.div`
+ width:45%;
+ height:100%;
+ display:flex;
+ flex-direction:column;
+ justify-content: space-evenly;
+ align-items: flex-start;
+span{
+   width:100%;
+   height:auto;
+   font-size:1.2rem;
+   margin:5px 0;
+   p{
+    margin: 0 0 0 2.5rem;
+  }
+ }
+`;
+
+export const ThankYou = styled.div`
+width:70%;
+height:100%;
+display: flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+div{
+  width:45%;
+  font-size: 1.4rem;
   font-family: 'Open Sans';
-  padding: 0 10px;
-  outline:none;
 }
-textarea{
-  background-color: transparent;
-  border: 0.75px solid #3C3C3C;
-  width:60%;
-  height:80px;
-  outline:none;
+h2{
+  font-weight:300;
 }
+button{
+  width:270px;
+  height:79px;
+  margin:0;
+}
+`;
+
+export const Error = styled.span`
+color: red;
+font-weight:300;
+display:block;
+margin:10px 0;
 `;

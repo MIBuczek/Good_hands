@@ -1,70 +1,68 @@
-import React from 'react';
-import { FormStep, Form, BookCurier, CourierData} from './FormElements';
+import React, {useState, useContext} from 'react';
+import { FormStep, Form, BookCurier, Error} from './FormElements';
 import {ButtonAction} from '../../componets/Buttons';
 import styled from 'styled-components';
-// import { useState } from 'react';
+import { UploadContext } from '../../context/UploadContext';
+import { InputsAddress, dataAddressOne , dataAddressTwo ,CourierData} from '../../componets/InputsAddress';
 
 const CurierWrapper = styled.div`
 width:90%;
-height:90%;
+height:auto;
 display:flex;
 flex-direction: row;
 align-items:center;
 justify-content: space-between;
 `;
 
-const FormStep2 = ({setStepBack}) => {
-  
-  const setCurierData = ()=>{
-    // setStepFour();
-    // setStepFour()
+const FormStep4 = () => {
+  const { uploadForm, address, setAddress, setStep, setStepBack } = useContext(UploadContext);
+  const [ empty , setEmpty] = useState(false);
+
+  const checkInput = ( e ) =>{
+    let inputName = e.target.name;
+    let inputValue = e.target.value;
+    setAddress( {...address, [inputName] : inputValue });
   }
+
+  const checkStepFour = () => {
+    const value = Object.values(address);
+    if(value.length >= 6){
+      setEmpty(false)
+      uploadForm();
+      setStep(5)
+    } 
+    setEmpty(true)
+  }
+
     return ( 
-        <Form>
-      <h4>Krok 4/4</h4>
-      <FormStep>
-        <h2>Podaj adres oraz termin odbioru rzecz przez kuriera:</h2>
-        <CurierWrapper>
-          <BookCurier>
-           <h4>Adres odbioru :</h4>
-            <CourierData>
-              <label>Ulica</label>
-              <input type='text' name='street'/>
-            </CourierData>
-            <CourierData>
-               <label>Miasto</label>
-                <input type='text' name='city'/>
-            </CourierData>
-            <CourierData>
-                <label>Kod Pocztowy</label>
-                <input type='text' name='zipCode'/>
-            </CourierData>
-            <CourierData>
-               <label>Numer telefonu</label>
-               <input type='text' name='phone'/>
-            </CourierData>
-          </BookCurier>
-          <BookCurier> 
-            <h4>Termin odbioru:</h4>
-            <CourierData>
-            <label>Data</label>
-              <input type='text' name='street'/>
-            </CourierData>
-            <CourierData>
-                <label>Godzina</label>
-                  <input type='text' name='city'/>
-            </CourierData>
-            <CourierData>
-                  <label>Uwagi dla kuriera</label>
-                  <textarea type='text' name='zipCode'/>
-            </CourierData>
-          </BookCurier>
-        </CurierWrapper>
-      </FormStep>
+      <Form>
+        <h4>Krok 4/4</h4>
+        <FormStep>
+          <h2>Podaj adres oraz termin odbioru rzecz przez kuriera:</h2>
+          <CurierWrapper>
+            <BookCurier>
+            <h4>Adres odbioru :</h4>
+              {dataAddressOne.map( input =>(
+                <InputsAddress key={input.name} label={input.label} name={input.name} placeholder={input.placeholder} value={address[input.name]} onChange={e =>checkInput(e)}/>
+              ))}
+            </BookCurier>
+            <BookCurier> 
+              <h4>Termin odbioru:</h4>
+              {dataAddressTwo.map( input =>(
+                <InputsAddress key={input.name} label={input.label} name={input.name} placeholder={input.placeholder} value={address[input.name]} onChange={e =>checkInput(e)}/>
+              ))}
+              <CourierData>
+                    <label htmlFor='CourierNote'>Uwagi dla kuriera</label>
+                    <textarea type='text' name='courierNote' value={address['courierNote']} onChange={e =>checkInput(e)}/>
+              </CourierData>
+            </BookCurier>
+          </CurierWrapper>
+          { empty === true && <Error>Prosze wypełnić wszytskie pola dla kuriera.</Error>}
+        </FormStep>
         <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
-        <ButtonAction type='button' onClick={console.log('yes')}>Dalej</ButtonAction>
-    </Form>
+        <ButtonAction type='button' onClick={()=>checkStepFour()}>Dalej</ButtonAction>
+      </Form>
      );
 }
  
-export default FormStep2;
+export default FormStep4;

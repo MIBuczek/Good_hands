@@ -8,17 +8,28 @@ import {DataContext} from '../../context/DataContext';
 
 
 const FormHeader = () => {
-    const { userLoged, logOut } = useContext(DataContext);
+    const { isLoged, userLoged, logOut } = useContext(DataContext);
+
+    const logNot = (<>
+        <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
+        <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
+    </>);
+
+  const logIn = (<>
+    <span>Część {userLoged.email}</span>
+    <Link to="/" label="strona główna"><ButtonLog>Strona główna</ButtonLog></Link>
+    <Link to="/zbiorka" label="zbiorka"><ButtonLog>Zorganizuj zbiórkę</ButtonLog></Link>
+    <Link to="/wylogowane" label="rejestracj"><ButtonLog typ='button' onClick={()=>logOut()}>Wyloguj</ButtonLog></Link>
+  </>);
+
 
     return ( 
-    <HomeWrapper>
+    <HomeWrapper id='start'>
         <HomeImg></HomeImg>
         <HomeNav>
         <HomePannel>
             <LogInPannel>
-            <span>Część {userLoged.email}</span>
-            <Link to="/logowanie" label="logowaniee"><ButtonLog>Oddaj rzeczy</ButtonLog></Link>
-            <Link to="/wylogowane" label="rejestracj"><ButtonLog typ='button' onClick={()=>logOut()}>Wyloguj</ButtonLog></Link>
+                { isLoged !== true ? logNot : logIn }
             </LogInPannel>
             <NavRuter />
         </HomePannel>
@@ -30,7 +41,7 @@ const FormHeader = () => {
             <Romb1>
                 <span>1</span>
                 <p>Wybierz rzeczy</p>
-                </Romb1>
+            </Romb1>
             <Romb2>
                 <span>2</span>
                 <p>Spakuj je w worek</p>

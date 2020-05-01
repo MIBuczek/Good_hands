@@ -25,6 +25,9 @@ display:flex;
 flex-direction:row;
 justify-content:flex-end;
 align-items:center;
+button{
+  min-width: 8rem;
+}
 `;
 
 export const LogConsole = styled.div`

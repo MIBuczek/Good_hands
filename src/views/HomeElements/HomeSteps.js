@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { ButtonAction } from '../../componets/Buttons';
 import imgMotto from '../../assets/Decoration.svg';
@@ -101,7 +102,9 @@ const HomeSteps = () => {
         </InstructionElement>
       </StepsInstruction>
       <StepsMotto>
-        <ButtonAction>ODDAJ RZECZY</ButtonAction>
+        <Link to="/oddaj-rzeczy">
+          <ButtonAction>ODDAJ RZECZY</ButtonAction>
+        </Link>
       </StepsMotto>
     </HomeStepsWrapper>
   );

@@ -6,7 +6,7 @@ export const DataContext = createContext();
 const DataContextProvide = (props) => {
     const [ users , setUsers] = useState([]);
     const [ userLoged , setUserLoged] = useState({ email : '' , password: ''});
-    const [ isLoged, setIsLoged] = useState(false);
+    const [ isLoged, setIsLoged] = useState(true);
     const [ organizations, setOrganization ] = useState();
 
     const loadData = ()=>{

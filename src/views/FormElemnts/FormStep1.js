@@ -1,15 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CheckboxTyp , checkboxesStepOne } from '../../componets/CheckboxStepOne';
-import { FormStep, Form, Step} from './FormElements';
+import { FormStep, Form, Step , Error} from './FormElements';
 import { ButtonAction } from '../../componets/Buttons';
 import { UploadContext } from '../../context/UploadContext';
 
-
 const FormSterp1 = () => {
   const { checkedItems, setCheckedItems, setStep } = useContext(UploadContext);
+  const [ empty , setEmpty] = useState(false);
 
-  const checkStepOne = ( e ) =>{
+  const checkInputOne = ( e ) =>{
     setCheckedItems( {...checkedItems, [e.target.name ] : e.target.checked });
+  }
+
+  const checkStepOne = ()=>{
+    const value = Object.values(checkedItems);
+    if(value.length !== 0 && value.some( i => i === true )){
+      setEmpty(false);
+      setStep(2);
+    } 
+    setEmpty(true);
   }
   return (
     <Form>
@@ -19,12 +28,13 @@ const FormSterp1 = () => {
         {checkboxesStepOne.map( input => {
           return (
           <Step key={input.key}>
-            <CheckboxTyp type='checkbox' name={input.name} checked={checkedItems[input.name]} onChange={e=>checkStepOne(e)}/>
+            <CheckboxTyp name={input.name} checked={checkedItems[input.name]} onChange={e=>checkInputOne(e)}/>
             <label htmlFor={input.name} >{input.label}</label>
           </Step>)
         })}
+        { empty === true && <Error>Prosze zaznaczyć minimum jedno pole.</Error>}
       </FormStep>
-        <ButtonAction type='button' onClick={()=>setStep(2)}>Dalej</ButtonAction>
+        <ButtonAction type='button' onClick={()=>checkStepOne()}>Dalej</ButtonAction>
     </Form>
   );
 }
