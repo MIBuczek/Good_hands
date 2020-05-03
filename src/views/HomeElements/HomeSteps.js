@@ -13,6 +13,9 @@ width:100%;
 height:620px;
 display:flex;
 flex-direction:column;
+@media(max-width:996px){
+  height:auto;
+}
 `;
 
 const StepsMotto = styled.div`
@@ -26,6 +29,13 @@ h1{
   letter-spacing: -0.76px;
   color: #3C3C3C;
 }
+@media(max-width:996px){
+  height:auto;
+  margin-top:1rem;
+  h1{
+    font-size:1.6rem;
+  }
+}
 `;
 
 const StepsInstruction = styled.div`
@@ -36,6 +46,9 @@ display:flex;
 flex-direction:row;
 justify-content:center;
 align-items:center;
+@media(max-width:996px){
+  flex-direction:column;
+}
 `;
 const InstructionElement = styled.div`
 margin:0 4rem;
@@ -64,6 +77,13 @@ div{
 }
 p{
   font-size:16px;
+}
+@media(max-width:996px){
+  width:90%;
+  padding-top:1rem;
+  img{
+    width:30%;
+  }
 }
 `;
 

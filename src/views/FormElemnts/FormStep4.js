@@ -1,18 +1,8 @@
 import React, {useState, useContext} from 'react';
-import { FormStep, Form, BookCurier, Error} from './FormElements';
+import { FormStep, Form, BookCurier, Error , CurierWrapper, Buttons} from './FormElements';
 import {ButtonAction} from '../../componets/Buttons';
-import styled from 'styled-components';
 import { UploadContext } from '../../context/UploadContext';
 import { InputsAddress, dataAddressOne , dataAddressTwo ,CourierData} from '../../componets/InputsAddress';
-
-const CurierWrapper = styled.div`
-width:90%;
-height:auto;
-display:flex;
-flex-direction: row;
-align-items:center;
-justify-content: space-between;
-`;
 
 const FormStep4 = () => {
   const { uploadForm, address, setAddress, setStep, setStepBack } = useContext(UploadContext);
@@ -59,8 +49,10 @@ const FormStep4 = () => {
           </CurierWrapper>
           { empty === true && <Error>Prosze wypełnić wszytskie pola dla kuriera.</Error>}
         </FormStep>
-        <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
-        <ButtonAction type='button' onClick={()=>checkStepFour()}>Dalej</ButtonAction>
+        <Buttons>
+          <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
+          <ButtonAction type='button' onClick={()=>checkStepFour()}>Dalej</ButtonAction>
+        </Buttons>
       </Form>
      );
 }

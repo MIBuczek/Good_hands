@@ -18,6 +18,10 @@ span{
     font-size:1.1rem;
     font-weight:400;
 }
+@media(max-width:996px){
+span{
+    font-size:0.8rem;
+}}
 `;
 
 const Social = styled.div`
@@ -27,6 +31,13 @@ margin-right:2rem;
 img{
     width:30px;
     margin:0 5px;
+}
+@media(max-width:996px){
+maring:0;
+height:50%;
+img{
+    width:20px;
+}
 }
 `
 const HomeFooter = () => {

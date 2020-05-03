@@ -22,6 +22,11 @@ color: #5E5322;
   font-weight:300;
   margin:.8rem;
 }
+@media(max-width:996px){
+  h1{
+      font-size:1.6rem;
+  }
+}
 `;
 
 const OrgButtons=styled.div`
@@ -34,14 +39,22 @@ align-items:center;
 flex-wrap:wrap;
 button{
     margin:0 2rem;
-    width:208;
-    height:79;
     border:none;
     font-size:1.4rem;
     outline:none;
     &:focus{
      border: 0.75px solid #3C3C3C;
     }
+}
+@media(max-width:996px){
+  height:auto;
+  flex-direction:column;
+  button{
+      margin:0;
+      padding:10px 20px;
+      font-size: 1.2rem;
+
+  }
 }
 `;
 const OrgMotto = styled.div`
@@ -52,7 +65,15 @@ span{
     color: #3C3C3C;
     font-size:22px;
 }
+@media(max-width:996px){
+    width:90%;
+    height:auto;
+    span{
+        font-size:1rem;
+    }
+}
 `;
+
 const OrgGrupe = styled.div`
 width:70%;
 margin:0 auto;
@@ -60,6 +81,9 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+@media(max-width:996px){
+  width:90%;
+}
 `;
 
 const OrgElement = styled.div`
@@ -85,7 +109,9 @@ span{
     font-size:14px;
     margin-bottom:1.2rem;
 }
-
+@media(max-width:996px){
+text-align:center;
+}
 `;
 
 const HomeOrganizations = () => {

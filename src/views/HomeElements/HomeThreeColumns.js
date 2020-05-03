@@ -12,6 +12,11 @@ display:flex;
 flex-direction:row;
 align-items:center;
 justify-content:space-evenly;
+@media(max-width:996px){
+  flex-direction:column;
+  height:auto;
+  padding-bottom:2rem;
+}
 `;
 
 const Column = styled.div`
@@ -23,6 +28,9 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 font-family: 'Open Sans';
+@media(max-width:996px){
+  width:90%;
+}
 `;
 
 const H1 = styled.h1`
@@ -30,6 +38,9 @@ const H1 = styled.h1`
   font-size: 6rem;
   font-weight:300;
   margin:.8rem;
+  @media(max-width:996px){
+    font-size: 4rem;
+}
 `;
 
 const Span = styled.span`

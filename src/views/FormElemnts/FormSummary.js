@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { SummaryElements, SummaryAddress, Form} from './FormElements';
+import { SummaryElements, SummaryAddress, Form , Buttons} from './FormElements';
 import {ButtonAction} from '../../componets/Buttons';
 import { UploadContext } from '../../context/UploadContext';
 import tshirt from '../../assets/Icon-1.svg';
@@ -9,15 +9,16 @@ import arrow from '../../assets/Icon-4.svg';
 const FormSummary = () => {
   const { form, sendForm, setStep, setStepBack } = useContext(UploadContext);
 
-  const address = form.pickUpAddress;
-  
+//   const address = form.pickUpAddress;
+    const address = {};
+
     return ( 
      <Form>
         <h4>Podsumowanie Twojej darowizny</h4>
         <SummaryElements>
             <strong>Oddajesz:</strong>
             <span><img src={tshirt} alt='icone'/>{form.bags} worki, {form.items}, {form.whom} </span>
-    <span><img src={arrow} alt='icone'/>dla lokalizacji: {form.place}</span>
+            <span><img src={arrow} alt='icone'/>dla lokalizacji: {form.place}</span>
         </SummaryElements>
         <SummaryElements>
             <div>
@@ -36,8 +37,10 @@ const FormSummary = () => {
                 </SummaryAddress>
             </div>
         </SummaryElements>
-        <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
-        <ButtonAction type='button' onClick={()=>{setStep(6) ; sendForm()}}>Potwierdzam</ButtonAction>
+        <Buttons>
+            <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
+            <ButtonAction type='button' onClick={()=>{setStep(6) ; sendForm()}}>Potwierdzam</ButtonAction>
+        </Buttons>
      </Form>
      );
 }

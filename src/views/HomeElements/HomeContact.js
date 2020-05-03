@@ -38,6 +38,14 @@ button{
     height: 50px;
     font-size:16px;
 }
+@media(max-width:996px){
+  width:90%;
+  height:auto;
+  margin:0;
+  h2{
+      font-size:1.6rem;
+  }
+}
 `;
 
 const Form = styled.div`
@@ -49,6 +57,12 @@ font-weight:300;
 font-size:1rem;
 color:#3C3C3C;
 text-align:left;
+@media(max-width:996px){
+height:auto;
+button{
+
+}
+}
 `;
 
 const FormElement = styled.div`
@@ -106,6 +120,9 @@ textarea{
         font-size: 1.1rem;
         font-family: 'Open Sans';
     }
+}
+@media(max-width:996px){
+    width:80%;
 }
 `;
 
