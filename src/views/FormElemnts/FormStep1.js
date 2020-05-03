@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CheckboxTyp , checkboxesStepOne } from '../../componets/CheckboxStepOne';
-import { FormStep, Form, Step , Error} from './FormElements';
+import { FormStep, Form, Step , Error , Buttons} from './FormElements';
 import { ButtonAction } from '../../componets/Buttons';
 import { UploadContext } from '../../context/UploadContext';
 
@@ -34,7 +34,9 @@ const FormSterp1 = () => {
         })}
         { empty === true && <Error>Prosze zaznaczyć minimum jedno pole.</Error>}
       </FormStep>
+      <Buttons>
         <ButtonAction type='button' onClick={()=>checkStepOne()}>Dalej</ButtonAction>
+      </Buttons>
     </Form>
   );
 }

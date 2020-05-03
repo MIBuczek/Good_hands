@@ -12,6 +12,10 @@ height:80vh;
 display: flex;
 flex-direction: row;
 font-family: 'Open Sans';
+@media(max-width:996px){
+  height:auto;
+  flex-direction:column;
+}
 `
 const AboutText = styled.div`
 width:50%;
@@ -37,6 +41,21 @@ img:nth-of-type(2){
   margin-left:auto;
   margin-right:8rem;
 }
+@media(max-width:996px){
+  width:100%;
+  padding-bottom:1.5rem;
+  h2{
+    font-size:1.6rem;
+  }
+  span{
+    font-size:1rem;
+  }
+  img:nth-of-type(2){
+    margin-right:auto;
+    width:50%
+  }
+}
+
 `
 const AboutImg = styled.div`
 width:50%;

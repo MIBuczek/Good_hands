@@ -47,7 +47,7 @@ export const checkboxesStepOne = [
     {
       name: 'clothesGood',
       key: 'clothesGood',
-      label: 'ubrania, które nadają się do ponownego użycia',
+      label: 'ubrania, do ponownego użycia',
     },
     {
       name: 'clothesBad',

@@ -1,6 +1,6 @@
 import React , {useState, useContext } from 'react';
 import { CheckboxTyp , checkboxesStepThree } from '../../componets/CheckboxStepThree';
-import { FormStep, Form, Step ,Slected , InputExtra, Error} from './FormElements';
+import { FormStep, Form, Step ,Slected , InputExtra, Error, Buttons} from './FormElements';
 import {ButtonAction} from '../../componets/Buttons';
 import { UploadContext } from '../../context/UploadContext';
 
@@ -22,7 +22,7 @@ const FormStep2 = () => {
     setEmpty(true)
   }
     return ( 
-        <Form>
+    <Form>
       <h4>Krok 3/4</h4>
       <FormStep>
         <h2>Lokalizacja:</h2>
@@ -50,8 +50,10 @@ const FormStep2 = () => {
             { empty === true && <Error>Prosze zaznaczyć miasto i wybrać dla kogo ma być datek.</Error>}
         </Step>
       </FormStep>
+      <Buttons>
         <ButtonAction type='button' onClick={()=>setStepBack()}>Wstecz</ButtonAction>
         <ButtonAction type='button' onClick={()=>checkStepTree()}>Dalej</ButtonAction>
+      </Buttons>
     </Form>
   );
 }

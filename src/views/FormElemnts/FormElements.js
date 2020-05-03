@@ -6,13 +6,15 @@ width:100%;
 display: flex;
 flex-direction: column;
 `;
+
 export const FormSteps = styled.section`
 width:100%;
-height:80vh;
+min-height:80vh;
 background: url(${bgImgForm});
 background-size:cover;
 background-position:top;
 `;
+
 export const FromWarrning = styled.section`
 width:100%;
 height:160px;
@@ -32,27 +34,73 @@ span{
   margin-left:8rem;
   font-size:1.2rem;
 }
+@media(max-width:996px){
+  height:auto;
+  padding:1rem 0;
+  align-items:center;
+  text-align:center;
+  h2{
+    margin:0;
+    font-size:1.6rem;
+  }
+  span{
+    margin:0;
+    font-size:1rem;
+  }
+}
 `;
 
 export const Form = styled.div`
   width:55%;
-  height:100%;
+  min-height:100%;
   margin-left:6rem;
   text-align:left;
+  display:flex;
+  flex-direction:column;
   h4{
-  width:100%;
+  width:80%;
   font-size:1.5rem;
   color: #3C3C3C;
   margin-bottom:40px;
   font-family: 'Open Sans';
   }
-  button{
+  @media(max-width:996px){
+    width:100%;
+    min-height:533px;
+    margin: 0 10px;
+    h4{
+      margin-right:0;
+      margin-bottom:10px;
+    }
+    button{
+      width:160px;
+      height:50px;
+      margin:0 10px 10px 0;
+      padding: 0 0.5rem;
+      font-size:1.2rem;
+    }
+  }
+`;
+export const Buttons = styled.div`
+ width:100%;
+ height:60px;
+ margin-top: auto;
+ button{
     width:200px;
     height:50px;
     margin:0;
     padding: 0 1rem;
     font-size:1.4rem;
     margin-right:50px;
+  }
+  @media(max-width:996px){
+    button{
+      width:160px;
+      height:50px;
+      margin:0 10px 10px 0;
+      padding: 0 0.5rem;
+      font-size:1.2rem;
+    }
   }
 `;
 
@@ -63,6 +111,14 @@ font-family: 'Open Sans';
 h2{
   font-size:1.8rem;
   margin: 0.6rem 0;
+}
+@media(max-width:996px){
+  width:100%;
+  height:auto;
+  h2{
+    margin-right:0;
+    font-size:1.4rem;
+  }
 }
 `;
 
@@ -80,6 +136,14 @@ export const Step = styled.div`
   label{
    height:100%;
    font-size:22px;
+  }
+  @media(max-width:996px){
+    h4{
+      font-size:1.2rem;
+    }
+    label{ 
+      font-size:1rem;
+    }
   }
 `;
 
@@ -117,6 +181,24 @@ export const Slected = styled.select`
     outline:none;
     border:black;
     }
+    @media(max-width:996px){
+      width:180px;
+      height: 29px;
+      margin-right:0;
+      font-size:1rem;
+    }
+`;
+
+export const CurierWrapper = styled.div`
+width:90%;
+height:auto;
+display:flex;
+flex-direction: row;
+align-items:center;
+justify-content: space-between;
+  @media(max-width:996px){
+    flex-direction:column;
+}
 `;
 
 export const BookCurier = styled.div`
@@ -127,6 +209,13 @@ margin-right:2rem;
 h4{
   font-size:1.4rem;
   margin: 1rem 0;
+}
+@media(max-width:996px){
+  width:90%;
+  margin-right:0;
+  &:nth-of-type(2){
+    margin-bottom:1.5rem;
+  }
 }
 `;
 
@@ -163,6 +252,15 @@ export const SummaryElements = styled.div`
     margin: 0 0 0 2.5rem;
   }
  }
+ @media(max-width:996px){
+  width:100%;
+  span{
+    height:50px;
+  }
+  div{
+    flex-direction:column;
+  }
+}
 `;
 export const SummaryAddress = styled.div`
  width:45%;
@@ -180,28 +278,42 @@ span{
     margin: 0 0 0 2.5rem;
   }
  }
+ @media(max-width:996px){
+   margin-bottom:1rem;
+ }
 `;
 
 export const ThankYou = styled.div`
 width:70%;
-height:100%;
+height:800px;
 display: flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 div{
   width:45%;
+  height:40%;
   font-size: 1.4rem;
   font-family: 'Open Sans';
+  h2{
+    font-weight:300;
+  }
+  img{
+
+  }
 }
 h2{
   font-weight:300;
 }
-button{
-  width:270px;
-  height:79px;
-  margin:0;
-}
+@media(max-width:996px){
+   width:100%;
+   height:400px;
+   div{
+     width:90%;
+     h2{
+       font-size:1.6rem;
+     }
+   }
+ }
 `;
 
 export const Error = styled.span`

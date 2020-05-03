@@ -23,7 +23,7 @@ outline:none;
 export const ButtonAction = styled.button`
 font-weight:300;
 font-family: 'Open Sans';
-width: 16rem;
+width: 15rem;
 height: 120px;
 border: 0.75px solid #3C3C3C;
 background:none;
@@ -35,5 +35,11 @@ margin-right:44px;
 outline:none;
 &:hover,:active{
   border: 0.75px solid #FAD648;
+}
+@media(max-width:996px){
+  width: 11rem;
+  height: 82px;
+  margin: 1rem auto;
+  font-size:1.2rem;
 }
 `

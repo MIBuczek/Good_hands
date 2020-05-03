@@ -6,7 +6,7 @@ export const UploadContext = createContext();
 const UploadContextProvider = (props) =>{
     const [ checkedItems , setCheckedItems ] = useState({});
     const [ numberBags , setNumberBags]=useState('');
-    const [ step , setStep] = useState(3);
+    const [ step , setStep] = useState(6);
     const [ city , setCity] = useState('');
     const [ checkedItemsThree , setCheckedItemsThree ] = useState({});
     const [ extraOption, setExtraOption] =useState('');
