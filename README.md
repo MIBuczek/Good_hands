@@ -1,6 +1,6 @@
 # Good hands - application for keeping old thinks still alive
 
-[Oddam w dobre ręce.](http://www.aquathlonwroclaw.pl/aquathlon.html)
+[Good Hands organization](https://goodhand.netlify.app/)
 
 ## General info
 A page of oranization dealing with the collection of unwanted and no longer needed things. 
