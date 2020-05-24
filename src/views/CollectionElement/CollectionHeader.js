@@ -1,16 +1,17 @@
 import React, {useContext} from 'react';
-import { HomeWrapper , HomeImg , HomeNav , HomePannel ,HomePannelRombs, LogInPannel, Romb1 , Romb2, Romb3, Romb4 } from '../../componets/HeaderElements';
+import { HomeWrapper , HomeImg , HomeNav , HomePannel ,HomePannelRombs, LogInPannel, Romb1 , Romb2, Romb3 } from '../../componets/HeaderElements';
 import { Link } from "react-router-dom";
 import { ButtonLog } from '../../componets/Buttons';
 import imgMotto from '../../assets/Decoration.svg';
 import { NavRuterForm } from '../../componets/NavRuter';
-import {DataContext} from '../../context/DataContext';
+import { DataContext } from '../../context/DataContext';
 
 
 const FormHeader = () => {
     const { isLoged, userLoged, logOut } = useContext(DataContext);
 
     const logNot = (<>
+        <Link to="/" label="strona główna"><ButtonLog>Strona główna</ButtonLog></Link>
         <Link to="/logowanie" label="logowaniee"><ButtonLog>Zaloguj</ButtonLog></Link>
         <Link to="/rejestracj" label="rejestracj"><ButtonLog>Załóż konto</ButtonLog></Link>
     </>);
@@ -42,20 +43,16 @@ const FormHeader = () => {
             <section>
                 <Romb1>
                     <span>1</span>
-                    <p>Wybierz rzeczy</p>
+                    <p>Wybierz ogranizacje</p>
                 </Romb1>
                 <Romb2>
                     <span>2</span>
-                    <p>Spakuj je w worek</p>
+                    <p>Podaj cel zbiórki</p>
                 </Romb2>
                 <Romb3>
                     <span>3</span>
-                    <p>Wybierz funkcje</p>
+                    <p>Wybierz rzeczy</p>
                 </Romb3>
-                <Romb4>
-                    <span>4</span>
-                    <p>Zamów kuriera</p>
-                </Romb4>
             </section>
         </HomePannelRombs>
         </HomeNav>

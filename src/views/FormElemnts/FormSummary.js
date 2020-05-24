@@ -17,7 +17,7 @@ const FormSummary = () => {
         <h4>Podsumowanie Twojej darowizny</h4>
         <SummaryElements>
             <strong>Oddajesz:</strong>
-            <span><img src={tshirt} alt='icone'/>{form.bags} worki, {form.items}, {form.whom} </span>
+            <span><img src={tshirt} alt='icone'/>{form.bags} worki, {form.items} {form.whom} </span>
             <span><img src={arrow} alt='icone'/>dla lokalizacji: {form.place}</span>
         </SummaryElements>
         <SummaryElements>
