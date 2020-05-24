@@ -9,7 +9,7 @@ flex-direction: column;
 
 export const FormSteps = styled.section`
 width:100%;
-min-height:80vh;
+min-height:70vh;
 background: url(${bgImgForm});
 background-size:cover;
 background-position:top;
@@ -52,13 +52,13 @@ span{
 
 export const Form = styled.div`
   width:55%;
-  min-height:100%;
+  min-height:65vh;
   margin-left:6rem;
   text-align:left;
   display:flex;
   flex-direction:column;
   h4{
-  width:80%;
+  width:100%;
   font-size:1.5rem;
   color: #3C3C3C;
   margin-bottom:40px;
@@ -85,6 +85,7 @@ export const Buttons = styled.div`
  width:100%;
  height:60px;
  margin-top: auto;
+ align-self:flex-:end;
  button{
     width:200px;
     height:50px;
@@ -149,7 +150,7 @@ export const Step = styled.div`
 
 export const InputExtra = styled.input`
     width:80%;
-    height:36px;
+    height:46px;
     border: 0.75px solid #3C3C3C;
     background:none;
     font-weight:300;
@@ -203,7 +204,7 @@ justify-content: space-between;
 
 export const BookCurier = styled.div`
 width:45%;
-height: auto;
+min-height: 360px;
 display:inline-block;
 margin-right:2rem;
 h4{
@@ -245,7 +246,7 @@ export const SummaryElements = styled.div`
  span{
   font-weight:300;
   width:100%;
-  height:30px;
+  height:44px;
   display:flex;
   align-items: center;
   p{

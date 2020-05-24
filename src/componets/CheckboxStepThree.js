@@ -71,15 +71,15 @@ export const checkboxesStepThree = [
     },
     {
       name : 'homeless',
-        label: 'bezdomnym',
+      label: 'bezdomnym',
     },
     {
       name : 'disabled',
-        label: 'niepełnosprawnym',
+      label: 'niepełnosprawnym',
     },
     {
       name : 'oldPerson',
-        label: 'osoba starszym',
+      label: 'osoba starszym',
     },
   ];
   

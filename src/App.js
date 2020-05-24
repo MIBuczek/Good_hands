@@ -3,12 +3,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import DataContextProvider from './context/DataContext';
 import UploadContextProvider from './context/UploadContext';
+import CollectionContextProvider from './context/CollectionContext';
 import Home from './views/Home';
 import Form from './views/Form';
 import Login from './views/Login';
 import Logout from './views/Logout';
 import Register from './views/Reqister';
-import ColectionForm from './views/ColectionForm';
+import CollectionForm from './views/CollectionForm';
 import './App.css';
 
 const Wrapper = styled.div`
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
 function App() {
 
   return (
+    <CollectionContextProvider>
       <DataContextProvider>
         <UploadContextProvider>
           <Wrapper>
@@ -33,12 +35,13 @@ function App() {
                 <Route path="/logowanie" component={() => <Login />} />
                 <Route path="/wylogowane" component={() => <Logout />} />
                 <Route path="/rejestracj" component={() => <Register />} />
-                <Route path="/zbiorka" component={() => <ColectionForm />} />
+                <Route path="/zbiorka" component={() => <CollectionForm />} />
               </Switch>
             </BrowserRouter>
           </Wrapper>
         </UploadContextProvider>
       </DataContextProvider>
+    </CollectionContextProvider>
   )
 }
 

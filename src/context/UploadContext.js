@@ -1,32 +1,24 @@
 import React, {useState, createContext} from 'react';
 import db from '../Firebase';
+import { switchToPlGoods } from './CollectionContext';
 
 export const UploadContext = createContext();
 
 const UploadContextProvider = (props) =>{
     const [ checkedItems , setCheckedItems ] = useState({});
     const [ numberBags , setNumberBags]=useState('');
-    const [ step , setStep] = useState(6);
+    const [ step , setStep] = useState(1);
     const [ city , setCity] = useState('');
     const [ checkedItemsThree , setCheckedItemsThree ] = useState({});
     const [ extraOption, setExtraOption] =useState('');
     const [ address, setAddress] = useState({});
     const [ form , setForm ] = useState({});
-
-    const fromObjectToString = (object) => {
-        const props = Object.getOwnPropertyNames(object);
-        if(props.length === 0 ){
-            return null;
-        }
-        const strings = props.reduce( ( a , b ) => a +', '+ b );
-        return strings;
-    };
-
+    
     const uploadForm = () => {
        const  newForm = {
-        items: fromObjectToString(checkedItems),
+        items: switchToPlGoods(checkedItems).join('; '),
         bags: numberBags,
-        whom : fromObjectToString(checkedItemsThree),
+        whom : switchToPlGoods(checkedItemsThree).join(', '),
         place: city.length !== 0 ? city : extraOption,
         pickUpAddress: address !== undefined ? address : {}
         }
@@ -69,7 +61,6 @@ const UploadContextProvider = (props) =>{
                 setAddress,
                 form,
                 sendForm,
-                fromObjectToString
             }} >
             {props.children}
         </UploadContext.Provider>

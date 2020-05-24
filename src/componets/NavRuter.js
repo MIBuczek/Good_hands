@@ -36,7 +36,7 @@ border: 0.75px solid #fff;
 
 }
 `
-const NavRuter = () => {
+export const NavRuterForm = () => {
   
   return (
     <NavBar>
@@ -55,4 +55,27 @@ const NavRuter = () => {
   );
 }
 
-export default NavRuter;
+export const NavRuter = () => {
+  
+  return (
+    <NavBar>
+       <NavList>
+        <Link to='start' smooth={true} duration={1000}>
+          <NavElement>Start</NavElement>
+        </Link>
+        <Link to='steps' smooth={true} duration={1000}>
+          <NavElement>O co chodzi?</NavElement>
+        </Link>
+        <Link to='about' smooth={true} duration={1000}>
+          <NavElement>O nas</NavElement>
+        </Link>
+        <Link to='organization' smooth={true} duration={1000}>
+          <NavElement>Fundacje i organizacje</NavElement>
+        </Link>
+        <Link to='contact' smooth={true} duration={1000}>
+          <NavElement>Kontakt</NavElement>
+        </Link>
+      </NavList>
+    </NavBar>
+  );
+}

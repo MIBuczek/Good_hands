@@ -21,6 +21,9 @@ background: linear-gradient(
   url(${bgContact});
 background-size:cover;
 background-position:top;
+@media(max-width:996px){
+    background-position:right;
+}
 `;
 const ContactForm = styled.div`
 width:35%;
